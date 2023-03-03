@@ -2,10 +2,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:myjob/allfun.dart';
-import 'package:myjob/detail.dart';
-import 'Models/jobs.dart';
-import 'api.dart';
+import 'package:myjob/project/allfun.dart';
+import 'package:myjob/api/printapi.dart';
+
+import '../Models/jobs.dart';
+import '../api.dart';
+import 'detail.dart';
+
 
 class Alljobs extends StatefulWidget {
    const Alljobs({Key? key}) : super(key: key);
@@ -68,7 +71,7 @@ class _HomePageState extends State<Alljobs> {
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) {
-                            return const Alljobs();
+                            return const Pa();
                           },
                         ));
                       },
@@ -114,7 +117,7 @@ class _HomePageState extends State<Alljobs> {
                           ],
                         ),
                         FutureBuilder<List<Jobs>>(builder: (context, snapshot) {
-                          if(!snapshot.hasData){
+                          if(snapshot.hasData){
                             return Container(
                                 height: MediaQuery.of(context).size.height*0.5,
                                 padding: const EdgeInsets.all(20),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myjob/alljobs.dart';
-import 'package:myjob/login.dart';
+import 'package:myjob/api/printapi.dart';
+import 'package:myjob/database/printdatabase.dart';
 
 
 void main() {
@@ -15,6 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return   MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Login());
+        home: Pd());
   }
 }

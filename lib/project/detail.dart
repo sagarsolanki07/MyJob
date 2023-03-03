@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myjob/allfun.dart';
+import 'package:myjob/project/allfun.dart';
 
 class Detail extends StatelessWidget {
   String cn='',

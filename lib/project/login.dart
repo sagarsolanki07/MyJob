@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:myjob/allfun.dart';
-import 'package:myjob/alljobs.dart';
+import 'package:myjob/project/allfun.dart';
+
+import 'alljobs.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
