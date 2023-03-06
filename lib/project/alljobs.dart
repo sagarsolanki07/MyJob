@@ -6,7 +6,7 @@ import 'package:myjob/project/allfun.dart';
 import 'package:myjob/api/printapi.dart';
 
 import '../Models/jobs.dart';
-import '../api.dart';
+import '../Models/api.dart';
 import 'detail.dart';
 
 
