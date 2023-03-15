@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'jobs.dart';
+import '../Models/jobs.dart';
 
 Future<List<Jobs>> callJobapi() async {
   http.Response res = await http

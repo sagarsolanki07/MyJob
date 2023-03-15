@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myjob/database/databaseapi.dart';
 import '../Models/dm.dart';
 import '../Models/jobs.dart';
-import '../Models/api.dart';
+import '../api/api.dart';
 
 
 class AddUser extends StatefulWidget {
@@ -61,36 +61,59 @@ class _AddUserState extends State<AddUser> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            FutureBuilder<List<Dm>>(
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return DropdownButton(
+                                    items: snapshot.data?.map(( e) {
+                                      return DropdownMenuItem(
+                                          value: e,
+                                          child: Text(
+                                            e.jt.toString(),
+                                          ));
+                                    }).toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+
+                                      });
+                                    },
+                                  );
+                                } else {
+                                  return CircularProgressIndicator();
+                                }
+                              },
+                              future:  Databaseapi().getjob(),
+                            ),
 
                             Text('data'),
-                            // FutureBuilder<List<Dm>>(
-                            //   builder: (context, snapshot) {
-                            //     if (snapshot.hasData) {
-                            //       if (isjobType) {
-                            //         _ddSelectedValue = snapshot.data?[1];
-                            //         isjobType = false;
-                            //       }
-                            //       return DropdownButton(
-                            //         value: _ddSelectedValue,
-                            //         items: snapshot.data?.map(( e) {
-                            //           return DropdownMenuItem(
-                            //               value: e,
-                            //               child: Text(
-                            //                 e.jt.toString(),
-                            //               ));
-                            //         }).toList(),
-                            //         onChanged: (value) {
-                            //           setState(() {
-                            //             _ddSelectedValue = value;
-                            //           });
-                            //         },
-                            //       );
-                            //     } else {
-                            //       return CircularProgressIndicator();
-                            //     }
-                            //   },
-                            //   future:   isjobType ? Databaseapi().gejob(): null,
-                            // ),
+                            FutureBuilder<List<Dm>>(
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  if (isjobType) {
+                                    _ddSelectedValue = snapshot.data?[1];
+                                    isjobType = false;
+                                  }
+                                  return DropdownButton(
+                                    value: _ddSelectedValue,
+                                    items: snapshot.data?.map(( e) {
+                                      return DropdownMenuItem(
+                                          value: e,
+                                          child: Text(
+                                            e.jt.toString(),
+                                          ));
+                                    }).toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _ddSelectedValue = value;
+                                      });
+                                    },
+                                  );
+                                } else {
+                                  return CircularProgressIndicator();
+                                }
+                              },
+                              future:   isjobType ? Databaseapi().getjob(): null,
+                            ),
 
                             Container(
                                 margin: const EdgeInsets.all(10),

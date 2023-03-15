@@ -66,11 +66,16 @@ class _LoginState extends State<Login> {
                           'For Yourself',
                         ),
                       ),
-
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
                       Container(
                         margin: EdgeInsets.only(
-                          left: width / 4,
-                          top: height / 10,
+                          left: width / 80,
+
                         ),
                         child: FloatingActionButton(
                           onPressed: () => {},
@@ -86,7 +91,7 @@ class _LoginState extends State<Login> {
                         children: [
                           Container(
                             margin: EdgeInsets.only(
-                              left: width / 20,
+                              left: width / 8,
                               top: height / 30,
                             ),
                             child: FloatingActionButton(
@@ -115,7 +120,7 @@ class _LoginState extends State<Login> {
                       ),
                       Container(
                         margin: EdgeInsets.only(
-                          left: width / 3,
+                          left: width / 50,
                         ),
                         child: FloatingActionButton(
                           onPressed: () => {},
@@ -139,7 +144,7 @@ class _LoginState extends State<Login> {
                           ),
                           Container(
                             margin: EdgeInsets.only(
-                              left: width/2.7,
+                              left: width/3,
                             ),
                             child: FloatingActionButton(
                               onPressed: () => {},
@@ -152,7 +157,7 @@ class _LoginState extends State<Login> {
                         ],
                       ),
                       Container(
-                          margin: EdgeInsets.only(left: width/2.3),
+                          margin: EdgeInsets.only(left: width/30),
                           child: FloatingActionButton(
                             onPressed: () => {},
                             backgroundColor: Colors.white,
@@ -163,42 +168,45 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                 ),
-                Container(
+                BottomNavigationBarTheme(
+                  data: const BottomNavigationBarThemeData( backgroundColor: Colors.black,),
+                  child: Container(
 
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100)),
-                  margin:  EdgeInsets.only(
-                    bottom: 20
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child:  Center(
-                          child: text('Start Now',s: 18.0,c: Colors.black),
-                        ),
-                      ),
-                      Container(
-
-                        padding: EdgeInsets.all(5),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          radius: 35,
-                          child: IconButton(
-                            onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) {
-                                    return const Alljobs();
-                                  },
-                                ));
-                            },
-                            iconSize: 25,
-                            color: Colors.white,
-                            icon: const Icon(Icons.arrow_forward),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(100)),
+                    margin:  EdgeInsets.only(
+                      bottom: 15,top: 20
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child:  Center(
+                            child: text('Start Now',s: 18.0,c: Colors.black),
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+
+                          padding: EdgeInsets.all(5),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.black,
+                            radius: 35,
+                            child: IconButton(
+                              onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return const Alljobs();
+                                    },
+                                  ));
+                              },
+                              iconSize: 25,
+                              color: Colors.white,
+                              icon: const Icon(Icons.arrow_forward),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
