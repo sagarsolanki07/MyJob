@@ -8,7 +8,7 @@ import '../api/api.dart';
 class AddUser extends StatefulWidget {
   Map? map;
 
-  AddUser(this.map);
+  AddUser(this.map, {super.key});
 
   @override
   State<AddUser> createState() => _AddUserState();
@@ -23,7 +23,9 @@ class AddUser extends StatefulWidget {
 class _AddUserState extends State<AddUser> {
   var userName = TextEditingController();
 
+  @override
   void initState() {
+    super.initState();
     widget.companyName.text =
         widget.map == null ? '' : widget.map!['CompanyName'].toString();
     widget.id.text = widget.map == null ? '' : widget.map!['Id'].toString();
@@ -79,13 +81,13 @@ class _AddUserState extends State<AddUser> {
                                     },
                                   );
                                 } else {
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 }
                               },
                               future:  Databaseapi().getjob(),
                             ),
 
-                            Text('data'),
+                            const Text('data'),
                             FutureBuilder<List<Dm>>(
                               builder: (context, snapshot) {
                                 if (snapshot.hasData) {
@@ -109,7 +111,7 @@ class _AddUserState extends State<AddUser> {
                                     },
                                   );
                                 } else {
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 }
                               },
                               future:   isjobType ? Databaseapi().getjob(): null,
@@ -188,7 +190,7 @@ class _AddUserState extends State<AddUser> {
     map['JObType'] = widget.jobtype.text;
     map['CompanyName'] = widget.companyName.text;
     int id = await Databaseapi().inserData(map);
-  print(map);
+    print(map);
     return id;
   }
   Future<int> updateUser(id) async {

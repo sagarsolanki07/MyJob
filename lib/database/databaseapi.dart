@@ -43,12 +43,12 @@ class Databaseapi {
     if (data.hashCode != null) {
       for (int i = 0; i <= data.length; i++) {
         Dm d = Dm();
-        d.id = int.parse(data[i]['Id'].toString());
-        d.cn = data[i]['CompanyName'].toString();
-        d.jt = data[i]['JObType'].toString();
-        d.sl = int.parse(data[i]['Id'].toString());
-        d.sd = data[i]['SortDetail'].toString();
-        d.dt = data[i]['Detail'].toString();
+        d.id = int.parse(data![i]['Id'].toString());
+        d.cn = data![i]['CompanyName'].toString();
+        d.jt = data![i]['JObType'].toString();
+        d.sl = int.parse(data![i]['Id'].toString());
+        d.sd = data![i]['SortDetail'].toString();
+        d.dt = data![i]['Detail'].toString();
         ls.add(d);
         print(ls[i].cn.toString());
       }

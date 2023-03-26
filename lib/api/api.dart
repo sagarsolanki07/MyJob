@@ -18,10 +18,6 @@ Future<List<Jobs>> callJobapi() async {
   }
 }
 
-class Apioperation {
-  var companyName, id, jobtype;
-  Apioperation([this.id,this.companyName,this.jobtype]);
-
 
 
   Future<dynamic> deleteApi(id) async {
@@ -30,7 +26,7 @@ class Apioperation {
     return response1;
   }
 
-  Future<dynamic> addStudent() async {
+  Future<dynamic> addStudent(id,companyName,jobtype) async {
     var map = {};
     map['id'] = id.text;
     map['Company'] = companyName.text;
@@ -43,16 +39,15 @@ class Apioperation {
     return response;
   }
 
-  Future<dynamic> editStudent() async {
+  Future<dynamic> editStudent(id,companyName,jobtype) async {
     var map = {};
-    map['id'] = id.text;
-    map['Company'] = companyName.text;
-    map['Jobtype'] = jobtype.text;
+    map['id'] = id;
+    map['Company'] = companyName;
+    map['Jobtype'] = jobtype;
     print(id.text);
     var response1 = http.put(
-        Uri.parse("https://63edd49b5e9f1583bdb6e265.mockapi.io/job/" + id.text),
+        Uri.parse("https://63edd49b5e9f1583bdb6e265.mockapi.io/job/" + id),
         body: map);
     print(map);
     return response1;
   }
-}

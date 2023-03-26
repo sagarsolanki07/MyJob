@@ -104,18 +104,14 @@ class _AddUserState extends State<AddUser> {
                                   child: ElevatedButton(
                                     onPressed: () async {
                                       if (widget.map == null) {
-                                        await Apioperation(
-                                                widget.id,
-                                                widget.companyName,
-                                                widget.jobtype)
-                                            .addStudent();
+                                        await addStudent( widget.id,
+                                            widget.companyName,
+                                            widget.jobtype);
 
                                       } else {
-                                        await Apioperation(
-                                                widget.id,
-                                                widget.companyName,
-                                                widget.jobtype)
-                                            .editStudent()
+                                        await editStudent( widget.id,
+                                            widget.companyName,
+                                            widget.jobtype)
                                             .then((value) {
                                                   setState(() {});
                                                 });

@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:myjob/project/allfun.dart';
 import 'package:myjob/api/printapi.dart';
+import 'package:myjob/project/login.dart';
 
 import '../Models/jobs.dart';
 import '../api/api.dart';
@@ -21,9 +22,9 @@ class _HomePageState extends State<Alljobs> {
 
   final pages = [
      const Alljobs(),
-    const Alljobs(),
-    const Alljobs(),
-    const Alljobs(),
+     Login(),
+     Login(),
+     Login(),
   ];
 
   @override
@@ -37,52 +38,7 @@ class _HomePageState extends State<Alljobs> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 25),
-                        child: text(
-                          'Good Morning!',
-                          c: Colors.white70,
-                          s: 16.0,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 25),
-                        child: text(
-                          'Sagar Solanki',
-                          s: 18.0,
-                          c: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 25),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) {
-                            return const Pa();
-                          },
-                        ));
-                      },
-                      iconSize: 35,
-                      color: Colors.white,
-                      icon: const ImageIcon(AssetImage("assets/images/n.png")),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+ 
             Container(
               alignment: Alignment.centerLeft,
               child: text('Let`s Find Your\nDream Job!', s: 36.0),

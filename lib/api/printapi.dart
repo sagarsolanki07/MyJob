@@ -21,9 +21,7 @@ class _PaState extends State<Pa> {
 
       body: FutureBuilder<List<Jobs>>(
           builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return CircularProgressIndicator();
-            } else {
+            if (snapshot.hasData) {
               return Column(
                 children: [
                   AppBar(title:  IconButton(
@@ -57,7 +55,7 @@ class _PaState extends State<Pa> {
                                       snapshot.data![index].jobtype.toString()))),
                           IconButton(
                               onPressed: () async {
-                                http.Response res = await Apioperation(null).deleteApi(
+                                http.Response res = await deleteApi(
                                     snapshot.data![index].id.toString());
                                 if (res.statusCode == 200) {
                                   setState(() {
@@ -67,17 +65,17 @@ class _PaState extends State<Pa> {
                               icon: Icon(CupertinoIcons.delete)),
                           IconButton(
                               onPressed: ()  async {
-                                 await Navigator.of(context).push(MaterialPageRoute(
+                                await Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) {
                                     return AddUser(snapshot.data![index]);
 
                                   },
                                 )).then((value) {
-                                   if (value) {
-                                     print('done');
-                                     setState(() {
-                                     });
-                                   }
+                                  if (value) {
+                                    print('done');
+                                    setState(() {
+                                    });
+                                  }
                                 });
 
                               },
@@ -89,6 +87,8 @@ class _PaState extends State<Pa> {
                   ),
                 ],
               );
+            } else {
+              return CircularProgressIndicator();
             }
           },
           future: callJobapi()),
